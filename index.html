@@ -215,7 +215,7 @@ body {
     ]];
 
     function combine(parts) {
-      if (parts instanceof String) {
+      if (typeof parts === "string") {
         return parts;
       }
 
@@ -232,7 +232,7 @@ body {
       }
     }
 
-    $("#what").text = combine(partials);
+    $("#what").text(combine(partials));
   }
   $("#more").click(generate);
   generate();
