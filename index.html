@@ -175,9 +175,9 @@ body {
 
           <main role="main" class="inner cover">
             <h1 class="cover-heading">xkcd #1930</h1>
-            <p class="lead"></p>
+            <p class="lead" id="what"></p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-secondary">I want to know more!</a>
+              <a href="#" class="btn btn-lg btn-secondary" id="more">I want to know more!</a>
             </p>
           </main>
 
@@ -196,5 +196,36 @@ body {
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+     <script>
+ $(function() {
+  $("#more").click(function() {
+    var partials = [[
+      "Did you know that", 
+      [ 
+        [[ "The", ["Fall", "Spring"], "Equinox"]], 
+        [[ "The", ["Winter", "Summer"], ["Solstice", "Olympics"] ]]
+      ]
+    ]];
+
+    function combine(parts) {
+      if (typeof parts == "string") {
+        return parts;
+      }
+
+      if (typeof(parts == "array") {
+        if (parts.length == 1) {
+          var part = "";
+          for(var i = 0; i<parts[0].length; i++) {
+            part += (i > 0 ? " " : "") + combine(parts[0][i]);
+          }
+          return part;
+        } else {
+          return combine(parts[Math.floor(Math.random() * parts.length]));
+        }
+      }
+    }
+  });
+});
+     </script>
 </body>
 </html>
