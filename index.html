@@ -215,11 +215,11 @@ body {
     ]];
 
     function combine(parts) {
-      if (typeof parts == "string") {
+      if (parts instanceof String) {
         return parts;
       }
 
-      if (typeof parts == "array") {
+      if (parts instanceof Array) {
         if (parts.length == 1) {
           var part = "";
           for(var i = 0; i<parts[0].length; i++) {
